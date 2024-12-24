@@ -2,11 +2,17 @@ import os
 import csv
 
 # 定义真实图片文件夹及其标签
-real_folder = ["2_test_real_cropped"]
+real_folder = ["/home/data/shizh/real_or_fake/idCard_pics/3_real_birthday_cropped",
+               "/home/data/shizh/real_or_fake/idCard_pics/3_real_name_cropped",
+               "/home/data/shizh/real_or_fake/idCard_pics/3_real_number_cropped",
+               "/home/data/shizh/real_or_fake/idCard_pics/3_real_sex_cropped"]
 real_label = 0
 
 # 定义假图片文件夹列表及其标签
-fake_folders = ["3_fake_number_cutout_cropped"]
+fake_folders = ["/home/data/shizh/real_or_fake/idCard_pics/3_fake_birthday_cropped",
+                "/home/data/shizh/real_or_fake/idCard_pics/3_fake_name_cropped",
+                "/home/data/shizh/real_or_fake/idCard_pics/3_fake_number_cropped",
+                "/home/data/shizh/real_or_fake/idCard_pics/3_fake_sex_cropped"]
 fake_label = 1
 
 output_csv = 'test.csv'
@@ -16,7 +22,7 @@ data = []
             
 # 处理真图片
 for folder in real_folder:
-    for i in range(1, 51):  # train的真图片编号从 1 到 90
+    for i in range(81, 101):  # train的真图片编号从 1 到 90
         filename = f"{i}.jpg"
         file_path = os.path.join(folder, filename)
         
@@ -40,8 +46,8 @@ for folder in real_folder:
 
 # 处理假图片
 for folder in fake_folders:
-    for i in range(1,21):  # 假图片编号从 1 到 30
-        filename = f"{i}.png"
+    for i in range(81,101):  # 假图片编号从 1 到 30
+        filename = f"{i}.jpg"
         file_path = os.path.join(folder, filename)
         
         # 确认文件存在
